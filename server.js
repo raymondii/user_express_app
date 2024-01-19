@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const fs = require('fs');
+const cors = require("cors")
 
 const PORT = 3333;
 
@@ -20,6 +21,22 @@ async function saveUserData(usersArr) {
 
 // Opening up the middleware channel to allow json to be sent through from the client
 app.use(express.json());
+
+// Root Route
+app.get("/", (requeastObj, responseObj) => {
+    responseObj.sendFile(path.join(__dirname, "./public/index.html"))
+});
+
+// // Add Css
+// app.get("/css/style.css", (requestObj, responseObj) => {
+//     responseObj.sendFile(path.join(__dirname, "./css/style.css"))
+// })
+
+// Read every file in the public folder and make a route for me
+app.use(express.static("./public"))
+
+//open CORS to all domains // cross orgin request sharing
+app.use(cors());
 
 // Route to retreive/GET all users from the json database
 app.get('/api/users', async (requestObj, responseObj) => {
