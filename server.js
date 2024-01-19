@@ -35,7 +35,7 @@ app.post('/api/users', async (requestObj, responseObj) => {
   const users = await getUserData();
 
   // Overwrite the old array with the newly updated array
-  if (!users.find(user => user.username === requestObj.body.username)) {
+  if (!users.find(user => user.username === requestObj.body.username) && requestObj.body.username) {
     // Push the body object from the client to our old array
     users.push(requestObj.body);
 
