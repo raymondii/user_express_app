@@ -1,18 +1,14 @@
 const express = require('express');
-// const path = require('path');
-// const fs = require('fs');
-// const { v4 } = require('uuid');
-const mysql = require("mysql2");
 
 const PORT = 3333;
 
 const app = express();
 
-const db = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  database: "mysql_first_day_db"
-});
+// const db = mysql.createConnection({
+//   host: "localhost",
+//   user: "root",
+//   database: "mysql_first_day_db"
+// });
 
 // db.query("INSERT INTO users (username, email, password) VLAUES ('jd', 'jd@test.com', 'password123')"), (err, results) => {
 //   if (err) return console.log(err);
